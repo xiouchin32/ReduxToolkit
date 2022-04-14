@@ -2,7 +2,7 @@ import { AnyAaaaRecord } from "dns";
 import React, { useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/todoSlice";
+import { addTodo, addTodoAsync } from "../redux/todoSlice";
 
 const AddTodoForm = () => {
     const [value, setValue] = useState("");
@@ -12,7 +12,7 @@ const AddTodoForm = () => {
     const onSubmit = (event: any) => {
         event.preventDefault();
         dispatch(
-            addTodo({
+            addTodoAsync({
                 title: value,
             })
         );

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useDispatch } from "react-redux";
-import { deleteTodo, toggleComplete } from "../redux/todoSlice";
+import { deleteTodo, toggleComplete, toggleClickAsync, deleteClickAsync } from "../redux/todoSlice";
 
 interface props {
     id: number;
@@ -14,7 +14,7 @@ const TodoItem = ({ id, title, completed }: props) => {
 
     const handleCompleted = () => {
         disatch(
-            toggleComplete({
+            toggleClickAsync({
                 id: id,
                 completed: !completed,
             })
@@ -23,7 +23,7 @@ const TodoItem = ({ id, title, completed }: props) => {
 
     const handleDelete = () => {
         disatch(
-            deleteTodo({
+            deleteClickAsync({
                 id: id,
             })
         );
